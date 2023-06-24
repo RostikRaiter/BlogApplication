@@ -1,0 +1,9 @@
+﻿@using DataLayer.Models;
+@model User
+
+<h1>@Model.Username</h1>
+
+<p>Email: @Model.Email</p>
+
+<a href="/User/Edit/@Model.UserId">Edit</a> |
+<a href="/User/Delete/@Model.UserId">Delete</a>

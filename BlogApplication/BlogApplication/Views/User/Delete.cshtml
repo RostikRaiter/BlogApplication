@@ -1,0 +1,10 @@
+﻿@using DataLayer.Models;
+@model User
+
+<h1>Delete User</h1>
+
+<p>Are you sure you want to delete @Model.Username?</p>
+
+<form method="post" action="/User/Delete/@Model.UserId">
+    <button type="submit">Delete</button>
+</form>

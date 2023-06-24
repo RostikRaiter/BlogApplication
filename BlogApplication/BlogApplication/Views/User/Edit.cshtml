@@ -1,0 +1,17 @@
+﻿@using DataLayer.Models;
+@model User
+
+<h1>Edit User</h1>
+
+<form method="post" action="/User/Edit/@Model.UserId">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="Username" value="@Model.Username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="Password" value="@Model.Password" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="Email" value="@Model.Email" required>
+
+    <button type="submit">Update</button>
+</form>
