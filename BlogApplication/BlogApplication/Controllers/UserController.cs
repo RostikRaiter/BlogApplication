@@ -28,7 +28,7 @@ namespace BlogApplication.Controllers
             {
                 return NotFound();
             }
-            return View(user);
+            return Json(user);
         }
 
         [HttpGet("Create")]
@@ -43,9 +43,9 @@ namespace BlogApplication.Controllers
             if (ModelState.IsValid)
             {
                 _userService.AddUser(user);
-                return RedirectToAction(nameof(Index));
+                return Json(new { success = true, user = user });
             }
-            return View(user);
+            return Json(new { success = false });
         }
 
         [HttpGet("Edit/{id}")]
@@ -56,7 +56,7 @@ namespace BlogApplication.Controllers
             {
                 return NotFound();
             }
-            return View(user);
+            return Json(user);
         }
 
         [HttpPost("Edit/{id}")]
@@ -69,9 +69,9 @@ namespace BlogApplication.Controllers
             if (ModelState.IsValid)
             {
                 _userService.UpdateUser(user);
-                return RedirectToAction(nameof(Index));
+                return Json(new { success = true, user = user });
             }
-            return View(user);
+            return Json(new { success = false });
         }
 
         [HttpGet("Delete/{id}")]
@@ -82,14 +82,14 @@ namespace BlogApplication.Controllers
             {
                 return NotFound();
             }
-            return View(user);
+            return Json(user);
         }
 
         [HttpPost("Delete/{id}")]
         public IActionResult DeleteConfirmed(int id)
         {
             _userService.DeleteUser(id);
-            return RedirectToAction(nameof(Index));
+            return Json(new { success = true });
         }
     }
 }
